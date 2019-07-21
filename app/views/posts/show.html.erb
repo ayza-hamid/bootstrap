@@ -1,12 +1,18 @@
-
+<% title "Details" %>
 <div class="space">
-	<p>	<b>Post Title:</b> <%= @post.title%></p>
-	<p><b>Content: </b><%= @post.content%></p>
-	<p><b>Time of Creation: </b><small><%= @post.created_at %> </small></p>
-	
+	<p>
+		<b> Post Title: </b> <%= @post.title %>
+	</p>
+	<p>
+		<b> Content: </b> <%= @post.content %>
+	</p>
+	<p>
+		<b> Topic: </b> <%= @post.topic %>
+	</p>
+	<p>
+		<b> Time of Creation: </b> <small> <%= @post.created_at %> </small>
+	</p>
 </div>
 <div class="space">
-	<button class="btn btn-success">
-	<%= link_to "Back", posts_path%>
-	</button>
+	<%= link_to "Back", posts_path, class: 'btn btn-success' %>
 </div>

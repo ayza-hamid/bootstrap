@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Devisegem</title>
+    <title> Rails Training - <%= content_for?(:title) ? yield(:title) : 'Dummy Application' %> </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'decor' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'decor' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-
     <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
       <h5 class="my-0 mr-md-auto font-weight-normal">Rails Training</h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="#">Menu</a>
         <a class="p-2 text-dark" href="#">View All</a>
         <a class="p-2 text-dark" href="#">Contact</a>
-        <%if !user_signed_in? %>
-          <button class="btn btn-info"><%= link_to "Login", new_user_session_path %></button>
+        <% if !user_signed_in? %>
+          <%= link_to "Login", new_user_session_path, class: 'btn btn-info' %>
         <% end %>
         <% if user_signed_in? %>
-         <button class="btn btn-primary"><%= link_to "New Post", new_post_path %></button>
-          <button class="btn btn-danger"><%= link_to('Log out', destroy_user_session_path, :method => :delete) %></button>
+         <%= link_to("Logout",destroy_user_session_path,  :method => :delete ,class:'btn btn-primary') %>
         <% end %>
       </nav>
     </div>
-
-
-
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>

@@ -1,27 +1,5 @@
-
+<% title "Create a Post" %>
 <div class="form-group space container">
 	<h2> Add new Post</h2>
-	
-	<%= form_for @post do |f| %>
-		<% if @post.errors.any? %>
-			<h3>Errors:</h3>
-			<ul>
-				<% @post.errors.full_messages.each do |message| %>
-					<l1>
-						<%= message %>
-					</l1>
-					<br>
-				<% end %>
-			</ul>
-		<% end %>
-		<div class="col-md-4">
-			<%= f.label :title %> <br>
-			<%= f.text_field :title, :class => "form-control" %> <br>
-			<%= f.label :content %> <br>
-			<%= f.text_area :content, :class => "form-control"  %> <br>
-		<br>
-		</div>
-		<button type="submit" class="btn btn-success"> Create Post </button>
-	<% end %>
-	
+	<%= render 'form' %>	
 </div>

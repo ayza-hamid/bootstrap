@@ -1,8 +1,22 @@
-a
-{
+a{
 	color: white;
 }
 .space{
-	margin:1%;
+	margin: 1%;
 	padding: 1%;
+}
+.nohover{
+	color: white;
+	text-underline-position: none;
+}
+.cblack{
+	color: black;
+	text-underline-position: none;
+}
+label {
+  display: block;
+}
+.updownspace{
+	margin-top: 1%;
+	margin-bottom: 1%
 }
