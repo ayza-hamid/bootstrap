@@ -11,7 +11,7 @@
 	<% end %>
 
 	<div class="form-group">
-		<%= f.label :title %> 
+		<%= f.label :title %>
 		<%= f.text_field :title, class: 'form-control col-md-4' %>
 	</div>
 
@@ -22,9 +22,8 @@
 
 	<div class="form-group">
 	    <%= f.label :topic %>
-	    <%= f.select :topic, ['Politics','Religion'] , { include_blank: 'Please choose' } , { :class => 'form-control col-md-4' } %>
+	    <%= f.select :topic, ['Politics','Religion'], { include_blank: 'Please choose' }, { :class => 'form-control col-md-4' } %>
    </div>
 
 	<%= f.submit class: 'btn btn-success' %>
 <% end %>
-	
