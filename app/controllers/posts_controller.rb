@@ -6,19 +6,20 @@ class PostsController < ApplicationController
 
   def show
   end
-  
+
   def new
-  	@post = Post.new
+    @post = Post.new
   end
 
   def edit
   end
-  
+
   def create
-  	@post = Post.new(post_params)
-    
+    @post = Post.new(post_params)
+
     respond_to do |format|
-      if @post.save 
+      if @post.save
+        format.js
         format.html { redirect_to @post, notice: 'Your post is successfully created.' }
       else
         format.html { render :new }
@@ -37,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-  	@post.destroy
+    @post.destroy
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'The post is successfully deleted.' }
     end
@@ -46,10 +47,10 @@ class PostsController < ApplicationController
   private
     def find_post
       @post = Post.find(params[:id])
-    end 
+    end
 
     def post_params
-      params.require(:post).permit(:title, :content, :topic)
+      params.require(:post).permit(:title, :content, :topic, :category_name)
     end
 
 end

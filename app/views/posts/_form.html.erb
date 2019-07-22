@@ -1,4 +1,4 @@
-<%= form_for @post do |f| %>
+<%= form_for(@post, class: 'form-vertical', remote: true)  do |f| %>
 	<% if @post.errors.any? %>
 		<h3> Errors: </h3>
 		<ul>
@@ -21,9 +21,26 @@
 	</div>
 
 	<div class="form-group">
-	    <%= f.label :topic %>
-	    <%= f.select :topic, ['Politics','Religion'], { include_blank: 'Please choose' }, { :class => 'form-control col-md-4' } %>
+	    <%= f.label :category_name %>
+	    <%= f.text_field :category_name, id: 'category_autocomplete' %>
    </div>
 
-	<%= f.submit class: 'btn btn-success' %>
+   <%= f.submit class: 'btn btn-success' %>
 <% end %>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#category_autocomplete').autocomplete({
+		source: '/categories',
+		messages: {
+		  noResults: '',
+		  results: function() {}
+		},
+		focus: function(event, ui) {
+		  $('.ui-helper-hidden-accessible').hide();
+		  event.preventDefault();
+		}
+		});
+	});
+</script>
+
