@@ -9,9 +9,11 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @posts = Post.all
   end
 
   def edit
+    @posts = Post.all
   end
 
   def create
@@ -50,7 +52,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :topic, :category_name)
+      params.require(:post).permit(:title, :content, :city, :category_name)
     end
 
 end
